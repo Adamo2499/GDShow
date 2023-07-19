@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tworzenie własnego obrazka</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Parametry obrazka</legend>
+        <form action="../php/checkimageparameters.php" method="get">
+            <label for="image_width">Długość obrazka (px): <input type="number" name="image_width" id="image_width"
+                    min="100">
+            </label><br>
+            <label for="image_height">Szerokość obrazka (px): <input type="number" name="image_height" id="image_height"
+                    min="100"> </label><br>
+            <label for="bg_color" id="bg_color_label">Kolor tła: <input type="color" name="bg_color"
+                    id="bg_color"></label>
+            <label for="text_color">Kolor tekstu: <input type="color" name="text_color" id="text_color"
+                    value="#009900"></label><br>
+            <label for="main_text">Wpisz tekst do obrazka: <input type="text" name="main_text"
+                    id="main_text"></label><br>
+            <label for="sub_text">Wpisz tekst do obrazka: <input type="text" name="sub_text" id="sub_text"></label><br>
+            <!-- <label for="flip_image"><input type="checkbox" name="flip_image" id="flip_image"> Obróć tekst w
+                obrazie</label>
+            <span id="flips" style="display: none;">
+                <label for="flip_image_type_horizontal"><input type="radio" name="image_flip_type"
+                        id="image_flip_type_horizontal" value="1">Poziomo</label>
+                <label for="flip_image_type_vertical"><input type="radio" name="image_flip_type"
+                        id="image_flip_type_vertical" value="2">Pionowo</label>
+                <label for="flip_image_type_both"><input type="radio" name="image_flip_type" id="image_flip_type_both"
+                        value="3">W obie strony</label>
+            </span>
+            <br> -->
+            <input type="submit" value="Stwórz obrazek">
+        </form>
+    </fieldset>
+    <!-- <img src="../php/createShowImage.inc.php" alt="Przykładowy obrazek stworzony w PHP" > -->
+    <!-- <script>
+        document.getElementById("flip_image").addEventListener("click",function(){
+            if(document.getElementById("flip_image").checked){
+                document.getElementById("flips").style.display = "inline";
+            }
+            else {
+                document.getElementById("flips").style.display = "none";
+                let flipTypes = documents.getElementsByName('image_flip_type');
+                for(let i=0;i<flipTypes.length;i++){
+                    flipTypes[i].checked = false;
+                }
+            }
+        });
+    </script> -->
+</body>
+
+</html>

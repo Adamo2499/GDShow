@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowy obrazek</title>
+</head>
+
+<body>
+    <h2>Przykładowy obrazek stworzony w PHP</h2>
+    <img src="../php/filters/filterNegative.php" alt="Logo UMG w negatywie">
+    <br>
+    <input type="button" value="Pokaz kod" id="showcode_negative">
+    <pre style="border:1px dotted black; display: none;">
+        $filename = "../images/umg-zloty.png";
+
+        header("Content-type: image/png");
+
+        $image = imagecreatefrompng($filename);
+
+        imagefilter($image,IMG_FILTER_NEGATE);
+
+        imagepng($image);
+        imagedestroy($image);
+    </pre>
+    <script>
+        document.getElementById("showcode_negative").addEventListener("click", function () {
+            if (document.getElementsByTagName("pre")[0].style.display == "none") {
+                document.getElementsByTagName("pre")[0].style.display = "block";
+                document.getElementById("showcode_negative").value = "Ukryj kod";
+            }
+            else {
+                document.getElementsByTagName("pre")[0].style.display = "none";
+                document.getElementById("showcode_negative").value = "Pokaż kod";
+
+            }
+        });
+    </script>
+    <br>
+    <img src="../php/filters/filterPixels.php" alt="Rozpikselowane logo UMG">
+    <br>
+    <input type="button" value="Pokaz kod" id="showcode_pixels">
+    <pre style="border:1px dotted black; display: none;">
+        $filename = "../images/umg-zloty.png";
+
+        header("Content-type: image/png");
+
+        $image = imagecreatefrompng($filename);
+
+        imagefilter($image,IMG_FILTER_PIXELATE,10);
+
+        imagepng($image);
+        imagedestroy($image);
+    </pre>
+    <script>
+        document.getElementById("showcode_pixels").addEventListener("click", function () {
+            if (document.getElementsByTagName("pre")[1].style.display == "none") {
+                document.getElementsByTagName("pre")[1].style.display = "block";
+                document.getElementById("showcode_pixels").value = "Ukryj kod";
+            }
+            else {
+                document.getElementsByTagName("pre")[1].style.display = "none";
+                document.getElementById("showcode_pixels").value = "Pokaż kod";
+
+            }
+        });
+    </script>
+    <br>
+    <img src="../php/filters/filterBrightness.php" alt="Maksymalnie rozjaśnione logo UMG">
+    <br>
+    <input type="button" value="Pokaz kod" id="showcode_brightness">
+    <pre style="border:1px dotted black; display: none;">
+        $filename = "../images/umg-zloty.png";
+
+        header("Content-type: image/png");
+
+        $image = imagecreatefrompng($filename);
+
+        imagefilter($image,IMG_FILTER_BRIGHTNESS,255);
+
+        imagepng($image);
+        imagedestroy($image);
+    </pre>
+    <script>
+        document.getElementById("showcode_brightness").addEventListener("click", function () {
+            if (document.getElementsByTagName("pre")[2].style.display == "none") {
+                document.getElementsByTagName("pre")[2].style.display = "block";
+                document.getElementById("showcode_brightness").value = "Ukryj kod";
+            }
+            else {
+                document.getElementsByTagName("pre")[2].style.display = "none";
+                document.getElementById("showcode_brightness").value = "Pokaż kod";
+
+            }
+        });
+    </script>
+    <br>
+    <a href="./index.php">Powrót na stronę główną</a>
+</body>
+
+</html>

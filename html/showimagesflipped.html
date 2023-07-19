@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowy obrazek</title>
+</head>
+<body>
+    <h2>Odbicia obrazka</h2>
+    <img src="../php/flips/flipHorizontal.php" alt="Logo UMG odbity poziomo">
+    <br>
+    <input type="button" value="Pokaz kod" id="showcode_horizontal">
+    <pre style="border:1px dotted black; display: none;">
+        $filename = "./images/umg-zloty.png";
+
+        header("Content-type: image/png");
+        
+        $image = imagecreatefrompng($filename);
+        
+        imageflip($image,IMG_FLIP_HORIZONTAL);
+        
+        imagepng($image);
+        imagedestroy($image);
+    </pre>
+    <script>
+        document.getElementById("showcode_horizontal").addEventListener("click", function(){
+            if(document.getElementsByTagName("pre")[0].style.display == "none"){
+                document.getElementsByTagName("pre")[0].style.display = "block";
+                document.getElementById("showcode_horizontal").value = "Ukryj kod";
+            }
+            else {
+                document.getElementsByTagName("pre")[0].style.display = "none";
+                document.getElementById("showcode_horizontal").value = "Pokaż kod";
+
+            }
+        });
+    </script>
+    <br>
+    <img src="../php/flips/flipVertical.php" alt="Logo UMG odbity pionowo">
+    <br>
+    <input type="button" value="Pokaz kod" id="showcode_vertical">
+    <pre style="border:1px dotted black; display: none;">
+        $filename = "./images/umg-zloty.png";
+
+        header("Content-type: image/png");
+        
+        $image = imagecreatefrompng($filename);
+        
+       imageflip($image,IMG_FLIP_VERTICAL);
+        
+        imagepng($image);
+        imagedestroy($image);
+    </pre>
+    <script>
+        document.getElementById("showcode_vertical").addEventListener("click", function(){
+            if(document.getElementsByTagName("pre")[1].style.display == "none"){
+                document.getElementsByTagName("pre")[1].style.display = "block";
+                document.getElementById("showcode_vertical").value = "Ukryj kod";
+            }
+            else {
+                document.getElementsByTagName("pre")[1].style.display = "none";
+                document.getElementById("showcode_vertical").value = "Pokaż kod";
+
+            }
+        });
+    </script>
+    <br>
+    <img src="../php/flips/flipBoth.php" alt="Logo UMG odbity poziomo i pionowo">
+    <br>
+    <input type="button" value="Pokaz kod" id="showcode_both">
+    <pre style="border:1px dotted black; display: none;">
+        $filename = "./images/umg-zloty.png";
+
+        header("Content-type: image/png");
+        
+        $image = imagecreatefrompng($filename);
+        
+        imageflip($image,IMG_FLIP_BOTH);
+        
+        imagepng($image);
+        imagedestroy($image);
+    </pre>
+    <script>
+        document.getElementById("showcode_both").addEventListener("click", function(){
+            if(document.getElementsByTagName("pre")[2].style.display == "none"){
+                document.getElementsByTagName("pre")[2].style.display = "block";
+                document.getElementById("showcode_both").value = "Ukryj kod";
+            }
+            else {
+                document.getElementsByTagName("pre")[2].style.display = "none";
+                document.getElementById("showcode_both").value = "Pokaż kod";
+            }
+        });
+    </script>
+    <br>
+    <a href="./index.php">Powrót na stronę główną</a>
+</body>
+</html>

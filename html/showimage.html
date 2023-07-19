@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowy obrazek</title>
+</head>
+<body>
+    <h2>Przykładowy obrazek stworzony w PHP</h2>
+    <!-- <img src="./customImageExample.php" alt="Przykładowy obrazek stworzony w PHP" > -->
+    <img src="../images/customImageExample.png" alt="Przykładowy obrazek stworzony w PHP" >
+    <br>
+    <input type="button" value="Pokaz kod" id="showcode">
+    <pre style="border:1px dotted black; display: none;">
+        // Określenie wymiarów obrazka
+        $image = imagecreate(500, 300);
+        
+        // Ustawienie koloru tła
+        $background_color = imagecolorallocate($image, 0, 153, 0);
+        
+        // Ustawienie koloru obrazka
+        $text_color = imagecolorallocate($image, 255, 255, 255);
+        
+        // Stworzenie obrazka zawierającego tekst
+        imagestring($image, 5, 150, 100,  "Testowy glowny napis", $text_color);
+        imagestring($image, 3, 160, 120,  "Testowy poboczny napis", $text_color);
+        
+        // Określenie typu obrazka
+        header("Content-Type: image/png"); 
+        
+        //Wyświetlenie obrazka
+        imagepng($image);
+
+        //Zniszczenie obrazka
+        imagedestroy($image);
+    </pre>
+    <script>
+        document.getElementById("showcode").addEventListener("click", function(){
+            if(document.getElementsByTagName("pre")[0].style.display == "none"){
+                document.getElementsByTagName("pre")[0].style.display = "block";
+                document.getElementById("showcode").value = "Ukryj kod";
+            }
+            else {
+                document.getElementsByTagName("pre")[0].style.display = "none";
+                document.getElementById("showcode").value = "Pokaż kod";
+
+            }
+        });
+    </script>
+    <a href="./index.php">Powrót na stronę główną</a>
+</body>
+</html>
